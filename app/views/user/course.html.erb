@@ -1,0 +1,46 @@
+<div id="courseWrapper">
+  <div id="courseContainer">
+    <h1><%= @user.name %>の時間割表</h1>
+
+    <div id="weekSchedule">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>日</th>
+            <th>月</th>
+            <th>火</th>
+            <th>水</th>
+            <th>木</th>
+            <th>金</th>
+            <th>土</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @courses.each.with_index(1) do |course, i| %>
+          <tr>
+            <td>
+              <ul>
+                <li><%= i %>時間目</li>
+                <% if @times.find_by(class_num: i).start %>
+                  <li><%= l @times.find_by(class_num: i).start %>-<%= l @times.find_by(class_num: i).end %></li>
+                <% end %>
+              </ul>
+            </td>
+            <% course.each do |day| %>
+            <td>
+              <ul>
+                <li><%= day.course %></li> 
+                <li><%= day.prof %></li> 
+                <li><%= day.location %></li>
+                <li><%= day.pass  %></li>
+              </ul>
+            </td>
+            <% end %>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

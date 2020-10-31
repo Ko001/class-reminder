@@ -1,0 +1,26 @@
+// Place all the styles related to the user controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+h1 {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+table, td, th {
+  border: 2px black solid;
+  text-align: left;
+  }
+
+#courseWrapper {
+  max-width: 1200px;
+}
+
+#courseContainer {
+  max-width: 600px;
+  margin: 0 auto;
+}
