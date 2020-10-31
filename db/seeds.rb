@@ -18,8 +18,17 @@ day_nums.each do |day_num|
   end
 end
 
+class_nums.each do |class_num|
+  user.course_times.create(class_num: class_num)
+end
+
 m1 = CourseInfo.find_by(day:1, time:1)
 m1.course = "101"
 m1.prof = "unknown"
 m1.location = "room"
 m1.save
+
+time = CourseTime.find_by(class_num: 1)
+time.start = "9:00"
+time.end = "10:30"
+time.save

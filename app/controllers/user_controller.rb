@@ -6,6 +6,7 @@ class UserController < ApplicationController
     @courses = []
     course_nums.each do |course_num|
     @courses << @user.course_infos.where(time: course_num).order(:day)
+    @times = @user.course_times
     end
   end
 end
