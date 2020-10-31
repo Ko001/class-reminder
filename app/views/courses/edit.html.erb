@@ -1,0 +1,23 @@
+<%= "#{@user.name}の#{@day[@course.day]}曜#{@course.time}限の授業" %>
+
+<%= form_tag(course_path, method: :patch) do %>
+<table>
+  <tr>
+    <td><%= label :name, "授業名"%></td>
+    <td><%= text_field_tag :course, @course.course %></td>
+  </tr>
+  <tr>
+    <td><%= label :prof, "教授名"%></td>
+    <td><%= text_field_tag :prof, @course.prof %></td>
+  </tr>
+  <tr>
+    <td><%= label :location, "場所(zoom)"%></td>
+    <td><%= text_field_tag :location, @course.location %></td>
+  </tr>
+  <tr>
+    <td><%= label :pass, "PASS"%></td>
+    <td><%= text_field_tag :pass, @course.pass %></td>
+  </tr>
+</table>
+<%= submit_tag '更新', class: 'btn'%>
+<% end %>
