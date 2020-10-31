@@ -1,6 +1,6 @@
 <div id="courseWrapper">
   <div id="courseContainer">
-    <h1>〇〇の時間割表</h1>
+    <h1><%= @user.name %>の時間割表</h1>
 
     <div id="weekSchedule">
       <table>
@@ -17,70 +17,26 @@
           </tr>
         </thead>
         <tbody>
+        <% @courses.each.with_index(1) do |course, i|%>
           <tr>
             <td>
               <ul>
-                <li>１時間目</li>
+                <li><%= i%>時間目</li>
                 <li>1:00-2:00</li>
               </ul>
             </td>
+            <% course.each do |day| %>
             <td>
               <ul>
-                <li>授業名：</li>
-                <li>教員名：</li>
-                <li>ZoomID</li>
-                <li>PASS</li>
+                <li><%= day.course %></li> 
+                <li><%= day.prof %></li> 
+                <li><%= day.location %></li>
+                <li><%= day.pass  %></li>
               </ul>
             </td>
-            <td>
-              <ul>
-                <li>授業名：</li>
-                <li>教員名：</li>
-                <li>ZoomID</li>
-                <li>PASS</li>
-              </ul>
-            </td>
-            <td>
-              <ul>
-                <li>授業名：</li>
-                <li>教員名：</li>
-                <li>ZoomID</li>
-                <li>PASS</li>
-              </ul>
-            </td>
-            <td>
-              <ul>
-                <li>授業名：</li>
-                <li>教員名：</li>
-                <li>ZoomID</li>
-                <li>PASS</li>
-              </ul>
-            </td>
-            <td>
-              <ul>
-                <li>授業名：</li>
-                <li>教員名：</li>
-                <li>ZoomID</li>
-                <li>PASS</li>
-              </ul>
-            </td>
-            <td>
-              <ul>
-                <li>授業名：</li>
-                <li>教員名：</li>
-                <li>ZoomID</li>
-                <li>PASS</li>
-              </ul>
-            </td>
-            <td>
-              <ul>
-                <li>授業名：</li>
-                <li>教員名：</li>
-                <li>ZoomID</li>
-                <li>PASS</li>
-              </ul>
-            </td>
+            <% end %>
           </tr>
+        <% end %>
         </tbody>
       </table>
     </div>
