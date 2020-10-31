@@ -9,4 +9,8 @@ class UserController < ApplicationController
     @times = @user.course_times
     end
   end
+
+  def edit
+    @course = CourseInfo.find_by(id: params[:course_id])
+  end
 end
