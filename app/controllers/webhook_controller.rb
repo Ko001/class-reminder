@@ -38,7 +38,7 @@ class WebhookController < ApplicationController
 
           message = {
             type: 'text',
-            text: settingMessage
+            text: event.message['text']
           }
           client.reply_message(event['replyToken'], message)
         end
