@@ -25,6 +25,7 @@ class WebhookController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
+          settingMessage = ""
           # if events[0].message['text'] == "授業設定" && User.find_by(line_id: events[0]['source']['userId'])
           #   user = User.find_by(line_id: events[0]['source']['userId'])
           #   redirect_to("/users/#{user.line_id}/sign_in")
