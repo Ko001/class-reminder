@@ -22,9 +22,15 @@
             <td>
               <ul>
                 <li><%= i %>時間目</li>
-                <% if @times.find_by(class_num: i).start %>
-                  <li><%= l @times.find_by(class_num: i).start %>-<%= l @times.find_by(class_num: i).end %></li>
-                <% end %>
+                  <li>
+                    <%= "#{@times.find_by(class_num: i).start_hour}:#{@times.find_by(class_num: i).start_minute} " %>-
+                    <% if @times.find_by(class_num: i).end_minute == 0%>
+                      <%= "#{@times.find_by(class_num: i).end_hour}:#{@times.find_by(class_num: i).end_minute}0"%>
+                    <% else%>
+                      <%= "#{@times.find_by(class_num: i).end_hour}:#{@times.find_by(class_num: i).end_minute}"%>
+                    <% end%>
+                  </li>
+                <%= link_to("編集", "/users/#{@user.id}/course_times/#{@times.find_by(class_num: i).id}/edit") %>
               </ul>
             </td>
             <% course.each do |day| %>
@@ -34,7 +40,7 @@
                 <li><%= day.prof %></li> 
                 <li><%= day.location %></li>
                 <li><%= day.pass  %></li>
-                <%= link_to("編集", "/courses/#{day.id}/edit") %>
+                <%= link_to("編集", "/users/#{@user.id}/courses/#{day.id}/edit") %>
               </ul>
             </td>
             <% end %>
