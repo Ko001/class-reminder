@@ -25,17 +25,12 @@ class WebhookController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
-          settingMessage = "エラー"
           # if events[0].message['text'] == "授業設定" && User.find_by(line_id: events[0]['source']['userId'])
           #   user = User.find_by(line_id: events[0]['source']['userId'])
           #   redirect_to("/users/#{user.line_id}/sign_in")
           # elsif events[0].message['text'] == "授業設定" && !User.find_by(line_id: events[0]['source']['userId'])
-          #   settingMessage = "https://class-reminder-bot.herokuapp.com//users/#{events[0]['source']['userId']}/sign_up"
+          #   redirect_to("/users/#{events[0]['source']['userId']}/sign_up")
           # end
-          if event.message['text'] == "授業設定"
-            settingMessage = "授業"
-          end
-
           message = {
             type: 'text',
             text: event.message['text']
