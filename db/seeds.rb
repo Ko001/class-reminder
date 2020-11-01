@@ -29,6 +29,8 @@ m1.location = "room"
 m1.save
 
 time = CourseTime.find_by(class_num: 1)
-time.start = "9:00"
-time.end = "10:30"
+time.start_hour = 9
+time.start_minute = 30
+time.end_hour = 10
+time.end_minute = 0
 time.save

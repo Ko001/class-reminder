@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_31_101510) do
+ActiveRecord::Schema.define(version: 2020_11_01_110501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,11 +29,13 @@ ActiveRecord::Schema.define(version: 2020_10_31_101510) do
 
   create_table "course_times", force: :cascade do |t|
     t.integer "class_num"
-    t.time "start"
-    t.time "end"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+    t.integer "start_hour"
+    t.integer "start_minute"
+    t.integer "end_hour"
+    t.integer "end_minute"
   end
 
   create_table "users", force: :cascade do |t|
