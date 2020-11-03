@@ -16,7 +16,7 @@ class CourseTimesController < ApplicationController
     if @course_time.save
       @course_time.save
       flash[:notice] = "更新しました。"
-      redirect_to('/')
+      redirect_to("/users/#{@user.id}/courses")
     else
       flash[:error] = "整数を入力してください"
       render('course_times/edit')

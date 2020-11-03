@@ -26,7 +26,7 @@ class CoursesController < ApplicationController
     if @course.save
       @course.save
       flash[:notice] = "更新しました。"
-      redirect_to('/')
+      redirect_to("/users/#{@user.id}/courses")
     end
   end
 
