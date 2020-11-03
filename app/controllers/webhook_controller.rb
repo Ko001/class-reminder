@@ -25,15 +25,20 @@ class WebhookController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
-          # if events[0].message['text'] == "授業設定" && User.find_by(line_id: events[0]['source']['userId'])
-          #   user = User.find_by(line_id: events[0]['source']['userId'])
-          #   redirect_to("/users/#{user.line_id}/sign_in")
-          # elsif events[0].message['text'] == "授業設定" && !User.find_by(line_id: events[0]['source']['userId'])
-          #   redirect_to("/users/#{events[0]['source']['userId']}/sign_up")
-          # end
+          serverURL = "https://8b3147f97321.ngrok.io"
+          settingLink = ""
+          if event.message['text'] == "授業設定" && User.find_by(line_id: event['source']['userId'])
+            session[:line_id] = event['source']['userId']
+            session[:reply_token] = event['replyToken']
+            settingLink = "#{serverURL}/users/#{event['source']['userId']}/#{event['replyToken']}/sign_in"
+          elsif event.message['text'] == "授業設定" && !User.find_by(line_id: event['source']['userId'])
+            settingLink = "#{serverURL}/users/#{event['source']['userId']}/#{event['replyToken']}/sign_up"
+          else
+            settingLink = "無し"
+          end
           message = {
             type: 'text',
-            text: event.message['text']
+            text: settingLink
           }
           client.reply_message(event['replyToken'], message)
         end

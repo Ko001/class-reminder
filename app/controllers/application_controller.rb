@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   
   def get_current_user
     @current_user = User.find_by(line_id: session[:line_id])
+    @reply_token = session[:reply_token] #used as one-time password
   end
 
   def redirect_unauthorized
@@ -11,6 +12,10 @@ class ApplicationController < ActionController::Base
       redirect_to "/"
       return false
     end
+  end
+
+  def keep_line_id
+    @line_id = session[:line_id]
   end
 
 end
