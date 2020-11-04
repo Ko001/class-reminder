@@ -7,10 +7,13 @@ class UsersController < ApplicationController
   def sign_in
     @user = User.find_by(line_id: params[:line_id])
 
-    if @user && @reply_token = params[:reply_token]
-      session[:reply_token] = nil
+    if @user && @user.pass == params[:reply_token]
+      session[:line_id] = params[:line_id]
       flash[:notice] = "サインインしました。"
       redirect_to("/users/#{@user.id}/courses")
+    else
+      flash[:error] = "URLが無効です。もう一度クラリンに「授業設定」と送ってください。"
+      redirect_to('/unauthorized')
     end
   end
 
@@ -19,9 +22,7 @@ class UsersController < ApplicationController
       flash[:error] = "すでに登録されています。"
       redirect_to("/users/#{User.find_by(line_id: params[:line_id]).id}/courses")
     end
-    if @reply_token = params[:reply_token]
       session[:line_id] = params[:line_id]
-    end
   end
 
   def create

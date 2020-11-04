@@ -23,7 +23,11 @@
               <ul>
                 <li><%= i %>時間目</li>
                   <li>
-                    <%= "#{@times.find_by(class_num: i).start_hour}:#{@times.find_by(class_num: i).start_minute} " %>-
+                    <% if @times.find_by(class_num: i).start_minute == 0%>
+                      <%= "#{@times.find_by(class_num: i).start_hour}:#{@times.find_by(class_num: i).start_minute}0"%>
+                    <% else%>
+                      <%= "#{@times.find_by(class_num: i).start_hour}:#{@times.find_by(class_num: i).start_minute}"%>
+                    <% end%>-
                     <% if @times.find_by(class_num: i).end_minute == 0%>
                       <%= "#{@times.find_by(class_num: i).end_hour}:#{@times.find_by(class_num: i).end_minute}0"%>
                     <% else%>
