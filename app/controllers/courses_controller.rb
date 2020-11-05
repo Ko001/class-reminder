@@ -2,6 +2,8 @@ class CoursesController < ApplicationController
   before_action :redirect_unauthorized
   def index
     @user = @current_user
+    @user.pass = nil
+    @user.save
     course_nums = [1, 2, 3, 4, 5, 6, 7]
     @courses = []
     course_nums.each do |course_num|

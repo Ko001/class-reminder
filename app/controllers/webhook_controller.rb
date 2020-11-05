@@ -25,10 +25,11 @@ class WebhookController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
-          serverURL = "https://bdc4239c1c27.ngrok.io"
+          serverURL = "https://0933030a9358.ngrok.io"
           returnMessage = ""
 
-          if !User.find_by(line_id: event['source']['userId'])
+          if 
+            !User.find_by(line_id: event['source']['userId'])
             if event.message['text'].include?("授業") && event.message['text'].include?("設定")
               returnMessage = "#{serverURL}/users/#{event['source']['userId']}/#{event['replyToken']}/sign_up"
             else
