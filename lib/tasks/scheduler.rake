@@ -2,7 +2,7 @@ desc "This task is called by the Heroku scheduler add-on"
 task :push_upcoming_class => :environment do
   puts "Pusshing"
   users = User.all
-    puts("get all users")
+    puts "get all users"
     users.each do |user|
       line_id = user.line_id
       p line_id
@@ -46,13 +46,13 @@ task :push_upcoming_class => :environment do
                   p "pass exests"
             end
             client.push_message(line_id, message)
-            puts("pushed")
+            puts "pushed"
             return
           end
         end
         searchHour += 1
       end
     end
-    puts("no class")
+    puts "no class"
   puts "done."
 end
