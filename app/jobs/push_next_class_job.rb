@@ -3,7 +3,7 @@ class PushNextClassJob < ApplicationJob
 
   def perform
     users = User.all
-
+    logger.debug("get all users")
     users.each do |user|
       line_id = user.line_id
       p line_id
@@ -47,6 +47,7 @@ class PushNextClassJob < ApplicationJob
                   p "pass exests"
             end
             client.push_message(line_id, message)
+            logger.debug("pushed")
             return
           end
         end
