@@ -72,9 +72,12 @@ class WebhookController < ApplicationController
           }
           client.reply_message(event['replyToken'], message)
         end
+      when Line::Bot::Event::Unfollow #フォロー解除(ブロック)
+        userid = event['source']['userId']
+        user = User.find_by(line_id: userid)
+        user.destroy
       end
     end
-
     "OK"
   end
 end
