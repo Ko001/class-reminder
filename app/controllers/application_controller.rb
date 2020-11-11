@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   def redirect_unauthorized
     if @current_user == nil
       flash[:alert] = "不正なアクセスです。"
-      redirect_to "/"
+      redirect_to "/unauthorized"
       return false
     end
   end

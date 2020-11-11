@@ -1,7 +1,7 @@
 <h1>新規作成</h1>
 <%= form_tag(users_path) do %>
-    <%= label :name, "名前（ニックネーム）"%><%= text_field_tag :name %>
-    <%= label :university, "大学名"%><%= text_field_tag :university %>
-    ※変更できないので、お間違えないのないように注意してください
+    <p><%= label :name, "名前（ニックネーム）"%><%= text_field_tag :name %></p>
+    <p><%= label :university, "大学名"%><%= text_field_tag :university %></p>
+    <p>※変更できないので、お間違えないのないように注意してください</p>
 <%= submit_tag '時間割表を作成する', class: 'btn'%>
 <% end %>

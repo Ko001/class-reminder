@@ -23,12 +23,12 @@
               <ul>
                 <li><%= i %>時間目</li>
                   <li>
-                    <%= "#{@times.find_by(class_num: i).start_hour}:#{@times.find_by(class_num: i).start_minute} " %>-
-                    <% if @times.find_by(class_num: i).end_minute == 0%>
-                      <%= "#{@times.find_by(class_num: i).end_hour}:#{@times.find_by(class_num: i).end_minute}0"%>
-                    <% else%>
-                      <%= "#{@times.find_by(class_num: i).end_hour}:#{@times.find_by(class_num: i).end_minute}"%>
-                    <% end%>
+                  <% time = @times.find_by(class_num: i)%>
+                  
+                  <% start_time = Time.new(2020, 1, 1, time.start_hour, time.start_minute, 0) %>
+                  <% end_time = Time.new(2020, 1, 1, time.end_hour, time.end_minute, 0) %>
+                  
+                    <%= start_time.strftime("%H:%M") %> - <%= end_time.strftime("%H:%M") %>
                   </li>
                 <%= link_to("編集", "/users/#{@user.id}/course_times/#{@times.find_by(class_num: i).id}/edit") %>
               </ul>
