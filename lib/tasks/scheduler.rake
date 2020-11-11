@@ -21,6 +21,7 @@ task :push_upcoming_class => :environment do
           startMin = course_time.start_minute
           startTime = Time.new.change(hour: startHour, min: startMin)
           if startTime >= nowIs && nowIs + 60*10 >= startTime && user.course_infos.find_by(time: course_time.class_num, day: searchDay).course
+            p "course exists"
             days = ["日", "月", "火", "水", "木", "金", "土"]
             course = user.course_infos.find_by(time: course_time.class_num, day: searchDay)
             start_time = Time.new(2020, 1, 1, course_time.start_hour, course_time.start_minute, 0)
