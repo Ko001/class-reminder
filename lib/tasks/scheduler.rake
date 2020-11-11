@@ -1,6 +1,6 @@
 desc "This task is called by the Heroku scheduler add-on"
 task :push_upcoming_class => :environment do
-  puts "Pusshing"
+  puts "Pushing"
   users = User.all
     puts "get all users"
     users.each do |user|
@@ -22,7 +22,7 @@ task :push_upcoming_class => :environment do
           startMin = course_time.start_minute
           startTime = Time.new.change(hour: startHour, min: startMin)
           p startTime
-          if startTime >= nowIs && nowIs + 60*10 >= startTime && user.course_infos.find_by(time: course_time.class_num, day: searchDay).course
+          if startTime >= nowIs && nowIs + 60*15 >= startTime && user.course_infos.find_by(time: course_time.class_num, day: searchDay).course
             p "course exists"
             days = ["日", "月", "火", "水", "木", "金", "土"]
             course = user.course_infos.find_by(time: course_time.class_num, day: searchDay)
