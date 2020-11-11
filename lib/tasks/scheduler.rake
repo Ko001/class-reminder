@@ -10,6 +10,7 @@ task :push_upcoming_class => :environment do
       nowIs = Time.new
       nowDay = nowIs.wday
       nowHour = nowIs.hour 
+      p nowIs
 
       searchDay = nowDay
       searchHour = nowHour
@@ -20,6 +21,7 @@ task :push_upcoming_class => :environment do
           startHour = course_time.start_hour
           startMin = course_time.start_minute
           startTime = Time.new.change(hour: startHour, min: startMin)
+          p startTime
           if startTime >= nowIs && nowIs + 60*10 >= startTime && user.course_infos.find_by(time: course_time.class_num, day: searchDay).course
             p "course exists"
             days = ["日", "月", "火", "水", "木", "金", "土"]
