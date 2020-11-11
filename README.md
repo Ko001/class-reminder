@@ -1,7 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a line bot to push information of upcoming classess to users several minutes before the classess.
 
 Things you may want to cover:
 
