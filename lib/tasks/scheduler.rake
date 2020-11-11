@@ -30,8 +30,8 @@ task :push_upcoming_class => :environment do
             message = nil
 
             client = Line::Bot::Client.new { |config|
-              config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
-              config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
+              config.channel_secret = ENV["YOUR_CHANNEL_SECRET"]
+              config.channel_token = ENV["YOUR_CHANNEL_ACCESS_TOKEN"]
             }
             if course.pass == ""
               message = [{
