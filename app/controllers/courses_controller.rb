@@ -39,7 +39,6 @@ class CoursesController < ApplicationController
     @course.prof = nil
     @course.location = nil
     @course.pass =nil
-    
     if @course.save
       @course.save
       flash[:notice] = "更新しました。"
