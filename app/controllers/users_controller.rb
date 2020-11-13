@@ -52,4 +52,6 @@ class UsersController < ApplicationController
       render('users/sign_up')
     end
   end
+
+  
 end

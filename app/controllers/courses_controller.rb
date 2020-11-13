@@ -32,4 +32,18 @@ class CoursesController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find_by(id: params[:user_id])
+    @course = @user.course_infos.find_by(id: params[:id])
+    @course.course = nil
+    @course.prof = nil
+    @course.location = nil
+    @course.pass =nil
+    
+    if @course.save
+      @course.save
+      flash[:notice] = "更新しました。"
+      redirect_to("/users/#{@user.id}/courses")
+    end
+  end
 end
