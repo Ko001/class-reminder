@@ -8,19 +8,19 @@ h1 {
 
 ul {
   list-style: none;
-  padding-left: 0;
+  padding: 0;
 }
 
-table, td, th {
-  border: 2px black solid;
-  text-align: left;
-  }
 
-#courseWrapper {
-  max-width: 1200px;
+.sign-up {
+  height: 40px;
+  font-size: 20px;
+  color: #00662d;
+  text-shadow: -1px -1px 1px #00ff71;
+  border-bottom: 1px solid #00662d;
 }
 
-#courseContainer {
-  max-width: 600px;
-  margin: 0 auto;
+.sign-up:hover {
+  margin-top: 3px;
+  border-bottom: 2px solid #00662d;
 }

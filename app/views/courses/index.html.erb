@@ -1,27 +1,27 @@
 <div id="courseWrapper">
   <div id="courseContainer">
     <h1><%= @user.name %>の時間割表</h1>
-
+    <p class="caution">※通知を行うには、授業時間と授業名の入力が必要です。</p>
     <div id="weekSchedule">
       <table>
         <thead>
           <tr>
-            <th></th>
-            <th>日</th>
-            <th>月</th>
-            <th>火</th>
-            <th>水</th>
-            <th>木</th>
-            <th>金</th>
-            <th>土</th>
+            <th class="time"></th>
+            <th class="course">日</th>
+            <th class="course">月</th>
+            <th class="course">火</th>
+            <th class="course">水</th>
+            <th class="course">木</th>
+            <th class="course">金</th>
+            <th class="course">土</th>
           </tr>
         </thead>
         <tbody>
         <% @courses.each.with_index(1) do |course, i| %>
-          <tr>
-            <td>
+          <tr class="row">
+            <td class="time">
               <ul>
-                <li><%= i %>時間目</li>
+                <li ><%= i %>時間目</li>
                   <li>
                   <% time = @times.find_by(class_num: i)%>
                   
@@ -34,7 +34,7 @@
               </ul>
             </td>
             <% course.each do |day| %>
-            <td>
+            <td class="course">
               <ul>
                 <li><%= day.course %></li> 
                 <li><%= day.prof %></li> 
