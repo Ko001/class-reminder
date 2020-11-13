@@ -1,5 +1,4 @@
 <h1><%= "#{@user.name}の#{@day[@course.day]}曜#{@course.time}限の授業" %></h1>
-
 <%= form_tag(user_course_path, method: :patch) do %>
 <table class="edit-form">
   <tr>
@@ -20,5 +19,6 @@
   </tr>
 </table>
 <p><%= link_to "戻る", "/users/#{@user.id}/courses" %></p>
+<%= link_to "リセット", "/users/#{@user.id}/courses/#{@course.id}", :method => :delete %>
 <p><%= submit_tag '更新', class: 'btn'%></p>
 <% end %>

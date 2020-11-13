@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
 
   resources :users, only:[:index, :edit, :update, :create] do
-    resources :courses, only:[:index, :edit, :show, :update]
-    resources :course_times, only:[:index, :edit, :show, :update]
+    resources :courses, only:[:index, :edit, :show, :update, :destroy]
+    resources :course_times, only:[:index, :edit, :show, :update,]
   end
 end
