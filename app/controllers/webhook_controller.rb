@@ -25,8 +25,7 @@ class WebhookController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
-          # serverURL = "https://class-reminder-bot.herokuapp.com"
-          serverURL = "https://aa8df1e771d7.ngrok.io"
+          serverURL = "https://class-reminder-bot.herokuapp.com"
           returnMessage = ""
 
           if !User.find_by(line_id: event['source']['userId'])
