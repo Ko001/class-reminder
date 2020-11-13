@@ -1,7 +1,7 @@
-<%= "#{@user.name}の#{@course_time.class_num}限の授業時間" %>
+<h1><%= "#{@user.name}の#{@course_time.class_num}限の授業時間" %></h1>
 
 <%= form_tag(user_course_time_path, method: :patch) do %>
-<table>
+<table class="edit-form">
   <tr>
     <td><%= label :start_hour, "開始"%></td>
     <td><%= text_field_tag :start_hour, @course_time.start_hour %>:<%= text_field_tag :start_minute, @course_time.start_minute %></td>
@@ -11,6 +11,6 @@
     <td><%= text_field_tag :end_hour, @course_time.end_hour %>:<%= text_field_tag :end_minute, @course_time.end_minute %></td>
   </tr>
 </table>
-<%= submit_tag '更新', class: 'btn'%>
+<p><%= link_to "戻る", "/users/#{@user.id}/courses" %></p>
+<p><%= submit_tag '更新', class: 'btn'%></p>
 <% end %>
-<%= link_to "戻る", "/users/#{@user.id}/courses" %>
