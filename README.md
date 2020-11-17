@@ -1,23 +1,12 @@
-# README
+# クラスリマインダー（Line Bot）
 
-This is a line bot to push information of upcoming classess to users several minutes before the classess.
+## 概要
+LINE上で大学生の時間割の管理ができ、また、授業の数分前にその授業の情報（始業時間、授業名、教室の場所やzoomの情報）がメッセージで送られてくるようになっています。
+### 機能
+* 授業情報の管理
+* 授業数分前の授業通知
+* 「月曜3限」などといった語句での授業検索
+* 「次」という語句で、次の授業を検索
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 技術仕様
+Ruby 2.6.3, Ruby on Rails 6.0.3.4, Line Messaging API, Heroku
